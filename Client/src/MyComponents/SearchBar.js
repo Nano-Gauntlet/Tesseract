@@ -5,6 +5,7 @@ import "./SearchBar.css";
 import { Paper, TextField, Box, Button, Grid } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { IconButton, InputAdornment } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
@@ -14,7 +15,7 @@ export default function SearchBar() {
     border: "none",
     // backdropFilter: "blur(2px)",
     borderRadius: "15px",
-    background:"black"
+    background:"rgba(0,0,0,0.4)"
   };
   const StyledButton = styled(Button)(({ theme, color = "primary" }) => ({
     ":hover": {
@@ -35,7 +36,8 @@ export default function SearchBar() {
     <div className="search">
     <div className='searchInput'>
       <Box display="inline-block" sx={{ p: 2 }}>
-    
+        <Paper elevation={3} style={paperCss}>
+          <div></div>
           <Grid container spacing={1} sx={{ p: 2 }}>
             <Grid item xs={7} md={9}>
            
@@ -49,7 +51,7 @@ export default function SearchBar() {
                   startAdornment: (
                     <InputAdornment>
                       <IconButton>
-                        <SearchIcon  style={{ color: "white" }}/>
+                        <RocketLaunchIcon  style={{ color: "white" }}/>
                       </IconButton>
                     </InputAdornment>
                   ),
@@ -77,7 +79,7 @@ export default function SearchBar() {
               </Box>
             </Grid>
           </Grid>
-   
+        </Paper>
       </Box>
     </div>
     </div>
