@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import TabPanelResult from './TabPanelResult'
+import logo from '../MyComponents/Assets/logo.png'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,7 +68,8 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            
+            <img src={logo} height="40" style={{"padding":"12px"}} ></img>
           </Typography>
           <Search>
             <SearchIconWrapper>

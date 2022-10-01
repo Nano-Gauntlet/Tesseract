@@ -1,7 +1,10 @@
 .searchPage{
     z-index: 1;
-    cursor: url('./100-removebg-preview.png'), auto;	
+    cursor: url('./icons8-rocket-48.png'), auto;	
     height: 100%;
     width: 100%;
     position: fixed;
+}
+.center{
+    margin-top:150px;
 }

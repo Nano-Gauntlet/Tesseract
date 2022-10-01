@@ -5,8 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Scale } from '@mui/icons-material';
 
 export default function DefaultCard() {
+    
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia

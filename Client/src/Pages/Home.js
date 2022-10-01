@@ -3,6 +3,8 @@ import SearchBar from '../MyComponents/SearchBar';
 import Bg_home from '../MyComponents/Assets/videoplayback.mp4'
 import './HomeCss.css'
 import { useState } from 'react';
+import logo from "../MyComponents/Assets/logo.png"
+
 function Home() {
     const [first, setfirst] = useState(Bg_home)
     return (
@@ -22,7 +24,11 @@ function Home() {
                 <source src={first} type="video/mp4" />
             </video>
             <div className='searchContainer'>
-                <SearchBar placeholder="Search" videoSetter={(e)=>setfirst(e)} video={first}/>
+                <center><img className='center' src = {logo}/></center>
+                <SearchBar placeholder="Search" videoSetter={(e)=>setfirst(e)} video={first}>
+                
+                </SearchBar>
+                
             </div>
         </div>
     )
