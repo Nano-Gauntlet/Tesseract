@@ -29,14 +29,15 @@ export default function ResultCacd() {
     const gridStylesAns = {
         backgroundColor: 'rgba(42, 42, 42 ,1)',
         color: '#ffffff',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        width: '100%'
     };
 
     return (
         <>
-            <Grid container spacing={2}>
-                <Grid item xs={6} md={8}>
-                    <Item style={gridStylesAns}>
+            <Grid container spacing={2} >
+                <Grid id='cardHover'>
+                    <Item style={gridStylesAns} id='nocardHover'>
                         <Card style={gridStyles}>
                             <Grid container spacing={2} style={gridStyles}>
                                 <Grid item xs={6} md={4} >
@@ -70,14 +71,14 @@ export default function ResultCacd() {
                          </Card>
                     </Item>
                 </Grid>
-                <Grid item xs={6} md={4}>
+                {/*<Grid item xs={6} md={4}>
                     <Item style={gridStylesAns}>
                         <img
                             src='https://portfolio.newschool.edu/iversoncal/files/2016/10/8d5494eef01f3a29579dfa469b25bc315d607ce4-wi5647.jpg'
                             width='580'
                         />
                     </Item>
-                </Grid>
+    </Grid>*/}
             </Grid>
 
         </>

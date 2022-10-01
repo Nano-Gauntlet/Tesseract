@@ -6,7 +6,7 @@ function HoverDisplayDetailsCircle1() {
     <div>
         <div className='badge'>
 <div className='text'>
-    Hello
+    <p style={{marginTop:"40%"}}>Image of the Day</p>
 </div>
         </div>
 	
