@@ -1,0 +1,7 @@
+.searchPage{
+    z-index: 1;
+    cursor: url('./100-removebg-preview.png'), auto;	
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
