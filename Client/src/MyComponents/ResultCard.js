@@ -67,36 +67,36 @@ export default function ResultCacd({resultElement}) {
                                         </CardContent>
                                         <CardActions>
                                             <FacebookShareButton
-                                                url={'https://github.com/next-share'}
+                                                url={resultElement.url}
                                                 quote={'Learning New Everyday'}
                                                 hashtag={'#learntSomethingNewToday<3'}
                                             >
                                                 <FacebookIcon size={32} round />
                                             </FacebookShareButton>
-                                            <LinkedinShareButton url={'https://github.com/next-share'}>
+                                            <LinkedinShareButton url={resultElement.url}>
                                                 <LinkedinIcon size={32} round />
                                             </LinkedinShareButton>
                                             <WhatsappShareButton
-                                                url={'https://github.com/next-share'}
+                                                url={resultElement.url}
                                                 title={'Learning New Everyday'}
                                                 separator=":: "
                                             >
                                                 <WhatsappIcon size={32} round />
                                             </WhatsappShareButton>
                                             <TwitterShareButton
-                                                url={'https://github.com/next-share'}
+                                                url={resultElement.url}
                                                 title={'Learning New Everyday'}
                                             >
                                                 <TwitterIcon size={32} round />
                                             </TwitterShareButton>
                                             <EmailShareButton
-                                                url={'https://github.com/next-share'}
+                                                url={resultElement.url}
                                                 subject={'Learning New Everyday'}
                                                 body="body"
                                             >
                                                 <EmailIcon size={32} round />
                                             </EmailShareButton>
-                                            <Button size="small">Learn More</Button>
+                                            <Button size="small" onClick="location.href=${resultElement.url};">Learn More</Button>
                                         </CardActions>
                                     </Item>
                                 </Grid>

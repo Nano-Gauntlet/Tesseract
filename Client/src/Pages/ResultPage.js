@@ -11,6 +11,7 @@ function ResultPage() {
   
   function displayResult(result) {
     setSearchResult(result.res.slice(0, 10));
+    console.log(JSON.stringify(searchResult,null,2))
   }
   return (
     <div>
@@ -30,7 +31,7 @@ function ResultPage() {
         <source src={Bg_home} type="video/mp4" />
       </video>
       <ResultHeader processResult={displayResult} />
-        <div>
+        <div style={{paddingLeft:"40px"}}>
           {searchResult.map((element) => (<ResultCacd resultElement={element} />))}
         </div>
 
