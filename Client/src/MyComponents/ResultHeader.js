@@ -67,7 +67,7 @@ backdropFilter: "blur( 7.5px )"
 
 }
 
-export default function PrimarySearchAppBar({processResult}) {
+export default function PrimarySearchAppBar({processResult, setDataType}) {
   
   const [search, setSearch] = useState("");
   const query = async (e)=>{
@@ -131,7 +131,7 @@ export default function PrimarySearchAppBar({processResult}) {
         <StyledButton variant="contained" type="submit">Search</StyledButton>
       </form>
           </Toolbar>
-          <TabPanelResult/>
+          <TabPanelResult setDataType={setDataType}/>
       </AppBar>
     </Box>
   );

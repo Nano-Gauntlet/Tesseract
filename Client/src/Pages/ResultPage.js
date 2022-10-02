@@ -1,17 +1,28 @@
 import React from 'react'
-import Bg_home from '../MyComponents/Assets/bg_home.mp4'
+import Bg_home from '../MyComponents/Assets/searchBg.mp4'
 import ResultHeader from '../MyComponents/ResultHeader'
 import { useState } from 'react'
-import ResultCacd from '../MyComponents/ResultCard'
+import ResultCard from '../MyComponents/ResultCard'
+import ResultImageSection from '../MyComponents/ResultImageSection'
 
+
+function ResultContainer({dataType, searchResult}){
+  console.log("called", dataType==="all", searchResult)
+    if(dataType==="all"){
+      return(<div>{searchResult.map((element) => (<ResultCard resultElement={element} />))}</div> );
+    }
+    if(dataType==="image"){
+      return( <ResultImageSection itemData={searchResult}/> )
+    }
+}
 
 function ResultPage() {
   const [searchResult, setSearchResult] = useState([]);
+  const [dataType, setDataType] = useState("all")
 
   
   function displayResult(result) {
     setSearchResult(result.res.slice(0, 10));
-    console.log(JSON.stringify(searchResult,null,2))
   }
   return (
     <div>
@@ -30,13 +41,10 @@ function ResultPage() {
       >
         <source src={Bg_home} type="video/mp4" />
       </video>
-      <ResultHeader processResult={displayResult} />
-        <div style={{paddingLeft:"40px"}}>
-          {searchResult.map((element) => (<ResultCacd resultElement={element} />))}
+      <ResultHeader processResult={displayResult} setDataType={setDataType} />
+        <div style={{paddingLeft:"150px", background:"rgba(0,0,0,0.7)"}}>
+          <ResultContainer dataType={dataType} searchResult={searchResult}/>
         </div>
-
-
-
     </div>
   )
 }
