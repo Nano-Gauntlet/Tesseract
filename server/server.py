@@ -1,8 +1,8 @@
 from pydoc import describe
 from flask import Flask
-
+from flask_cors import CORS
 app = Flask(__name__)
-
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/')
 def hello():
@@ -12,9 +12,9 @@ def hello():
 def query(subpath):
     from db import readMetadata
     import re
-
+    # TODO remove duplicate results 
     pattern = {"$regex":f".*{subpath}.*", "$options": 'i'}
-    docs = readMetadata({"title": pattern, "description": pattern })
+    docs = readMetadata({"title": pattern })
     docs.extend(readMetadata({ "description": pattern }))
     if(subpath=="error"):
         return {
