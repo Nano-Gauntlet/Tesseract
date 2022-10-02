@@ -1,9 +1,16 @@
 import React from 'react'
 import Bg_home from '../MyComponents/Assets/bg_home.mp4'
 import ResultHeader from '../MyComponents/ResultHeader'
+import { useState } from 'react'
 
 function ResultPage() {
-  console.log(Bg_home)
+  //console.log(Bg_home)
+  const [searchResult,setSearchResult] = useState("");
+  function getQuery(query){
+  setSearchResult(query);
+  console.log(searchResult)
+  console.log(query)
+  }
   return (
     <div>
       <video
@@ -21,8 +28,8 @@ function ResultPage() {
             >
                 <source src={Bg_home} type="video/mp4" />
             </video>
-            <ResultHeader/>
-        
+            <ResultHeader processResult = {getQuery}/>
+                  
         
     </div>
   )
