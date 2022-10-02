@@ -73,7 +73,6 @@ export default function PrimarySearchAppBar({processResult}) {
   const query = async (e)=>{
     e.preventDefault();
     var res = await searchAPI(search);
-    console.log(res);
     processResult(res);
   }
   

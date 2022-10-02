@@ -4,12 +4,10 @@ import ResultHeader from '../MyComponents/ResultHeader'
 import { useState } from 'react'
 
 function ResultPage() {
-  //console.log(Bg_home)
-  const [searchResult,setSearchResult] = useState("");
-  function getQuery(query){
-  setSearchResult(query);
-  console.log(searchResult)
-  console.log(query)
+  const [searchResult,setSearchResult] = useState({});
+  
+  function displayResult(result){
+    setSearchResult(result);
   }
   return (
     <div>
@@ -28,8 +26,12 @@ function ResultPage() {
             >
                 <source src={Bg_home} type="video/mp4" />
             </video>
-            <ResultHeader processResult = {getQuery}/>
-                  
+            <ResultHeader processResult = {displayResult}/>
+            <div>
+              <pre>
+                {JSON.stringify(searchResult, null, 2)}
+              </pre>
+            </div>
         
     </div>
   )
