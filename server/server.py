@@ -27,7 +27,7 @@ def query(subpath):
     
     return {
         "query": subpath,
-        "res": list(docs.values()),
+        "res": list(docs.values())[:10],
         "error": None
     }
 

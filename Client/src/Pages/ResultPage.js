@@ -4,14 +4,22 @@ import ResultCard from '../MyComponents/ResultCard'
 import ResultHeader from '../MyComponents/ResultHeader'
 import ResultImageSection from '../MyComponents/ResultImageSection'
 import {useLocation} from 'react-router-dom';
+import LokiError from '../MyComponents/LokiError';
 
 function ResultContainer({dataType, searchResult}){
-    if(dataType==="all"){
+    if(searchResult.length === 0){
+      return (<LokiError varient="opps"/>)
+    }
+    else if(dataType==="all"){
       return(<div>{searchResult.map((element) => (<ResultCard resultElement={element} />))}</div> );
     }
-    if(dataType==="image"){
+    else if(dataType==="image"){
       return( <ResultImageSection itemData={searchResult}/> )
     }
+    else{
+      return(<LokiError varient="future"/>)
+    }
+
 }
 
 function ResultPage() {
