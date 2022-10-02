@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import TabPanelResult from './TabPanelResult'
 import logo from '../MyComponents/Assets/logo.png'
+import { searchAPI } from "../util";
+import { useState } from "react";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import { Paper, TextField, Box, Button, Grid } from "@mui/material";
+import { IconButton, InputAdornment } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -24,8 +29,14 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const StyledButton = styled(Button)(({ theme, color = "primary" }) => ({
+  ":hover": {
+    color: theme.palette[color].main,
+    backgroundColor: "white"
+  },
+  textTransform: "none"
+}));
+{/*const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
   position: 'absolute',
@@ -47,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       width: '20ch',
     },
   },
-}));
+}));*/}
 
 const appbarTop={
     background: "rgba(16,18,27,0.4)",
@@ -56,7 +67,28 @@ backdropFilter: "blur( 7.5px )"
 
 }
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({processResult}) {
+  
+  const [search, setSearch] = useState("");
+  const query = async (e)=>{
+    e.preventDefault();
+    var res = await searchAPI(search);
+    processResult(res);
+  }
+  
+  const searchInputBox={
+    
+    width: "20%",
+    display: "flex",
+    background: "rgba(0,0,0,0.7)"
+  }
+  const textFieldCss = {
+    background: "rgba(128,128,128,0.2)",
+
+    input: {
+      color: "rgba(255,255,255,0.2)",
+    },
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -71,15 +103,33 @@ export default function PrimarySearchAppBar() {
             
             <img src={logo} height="40" style={{"padding":"12px"}} ></img>
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <form onSubmit={query} style={searchInputBox}>
+        <TextField
+        fullWidth
+          inputProps={{ style: { color: "white" } }}
+          style={textFieldCss}
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          label=""
+          InputProps={{
+            startAdornment: (
+              <InputAdornment>
+                  <RocketLaunchIcon style={{ color: "white", paddingRight: "10px"}} />
+              </InputAdornment>
+            ),
+            endAdornment:
+              (search.length !==0 && 
+                <InputAdornment>
+                    <CloseIcon
+                      onClick={() => setSearch("")}
+                      style={{ color: "white" }} />
+                </InputAdornment>
+              ) 
+          }}
+          variant="outlined"
+        />
+        <StyledButton variant="contained" type="submit">Search</StyledButton>
+      </form>
           </Toolbar>
           <TabPanelResult/>
       </AppBar>
