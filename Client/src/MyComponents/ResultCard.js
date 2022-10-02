@@ -11,6 +11,9 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import "./ResultCard.css"
 import { color } from '@mui/system';
+import {
+    FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, WhatsappIcon, WhatsappShareButton, TwitterShareButton, TwitterIcon, EmailShareButton, EmailIcon
+} from 'next-share';
 
 export default function ResultCacd() {
     const Item = styled(Paper)(({ theme }) => ({
@@ -62,13 +65,42 @@ export default function ResultCacd() {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">Share</Button>
+                                            <FacebookShareButton
+                                                url={'https://github.com/next-share'}
+                                                quote={'Learning New Everyday'}
+                                                hashtag={'#learntSomethingNewToday<3'}
+                                            >
+                                                <FacebookIcon size={32} round />
+                                            </FacebookShareButton>
+                                            <LinkedinShareButton url={'https://github.com/next-share'}>
+                                                <LinkedinIcon size={32} round />
+                                            </LinkedinShareButton>
+                                            <WhatsappShareButton
+                                                url={'https://github.com/next-share'}
+                                                title={'Learning New Everyday'}
+                                                separator=":: "
+                                            >
+                                                <WhatsappIcon size={32} round />
+                                            </WhatsappShareButton>
+                                            <TwitterShareButton
+                                                url={'https://github.com/next-share'}
+                                                title={'Learning New Everyday'}
+                                            >
+                                                <TwitterIcon size={32} round />
+                                            </TwitterShareButton>
+                                            <EmailShareButton
+                                                url={'https://github.com/next-share'}
+                                                subject={'Learning New Everyday'}
+                                                body="body"
+                                            >
+                                                <EmailIcon size={32} round />
+                                            </EmailShareButton>
                                             <Button size="small">Learn More</Button>
                                         </CardActions>
                                     </Item>
                                 </Grid>
                             </Grid>
-                         </Card>
+                        </Card>
                     </Item>
                 </Grid>
                 {/*<Grid item xs={6} md={4}>
