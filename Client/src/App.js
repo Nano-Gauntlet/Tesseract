@@ -13,8 +13,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="result" element={<ResultPage/> }></Route>
-      <Route path="demo" element={<Demo/> }></Route>
-      <Route path="page" element={<Prototype/> }></Route>
+      {/* <Route path="demo" element={<Demo/> }></Route> */}
+      {/* <Route path="page" element={<Prototype/> }></Route> */}
       </Routes>
   </BrowserRouter>
   

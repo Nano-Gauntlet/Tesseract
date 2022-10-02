@@ -4,6 +4,10 @@
     box-shadow: rgb(56, 83, 112) 0px 20px 30px -10px;
     transform: translateY(-3px);
     }
+#cardHover{
+    margin-top:40px;
+    
+}
 #nocardHover :hover{
     box-shadow: none;
     transform: none;
