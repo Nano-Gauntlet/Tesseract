@@ -13,6 +13,7 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { Paper, TextField, Box, Button, Grid } from "@mui/material";
 import { IconButton, InputAdornment } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { useLocation } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,9 +68,8 @@ backdropFilter: "blur( 7.5px )"
 
 }
 
-export default function PrimarySearchAppBar({processResult, setDataType}) {
-  
-  const [search, setSearch] = useState("");
+export default function PrimarySearchAppBar({processResult, setDataType, searchTerm}) {
+  const [search, setSearch] = useState(searchTerm || "");
   const query = async (e)=>{
     e.preventDefault();
     var res = await searchAPI(search);
