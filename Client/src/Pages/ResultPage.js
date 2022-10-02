@@ -1,12 +1,9 @@
 import React from 'react'
-import ResultCacd from '../MyComponents/ResultCard'
-import DefaultCard from '../MyComponents/DefaultCard'
-import TabPanelResult from '../MyComponents/TabPanelResult'
-import SearchBar from '../MyComponents/SearchBar'
-import Bg_home from '../MyComponents/Assets/videoplayback.mp4'
+import Bg_home from '../MyComponents/Assets/bg_home.mp4'
 import ResultHeader from '../MyComponents/ResultHeader'
 
 function ResultPage() {
+  console.log(Bg_home)
   return (
     <div>
       <video
