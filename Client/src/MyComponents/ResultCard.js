@@ -15,7 +15,7 @@ import {
     FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, WhatsappIcon, WhatsappShareButton, TwitterShareButton, TwitterIcon, EmailShareButton, EmailIcon
 } from 'next-share';
 
-export default function ResultCacd() {
+export default function ResultCacd({resultElement}) {
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -27,7 +27,8 @@ export default function ResultCacd() {
     const gridStyles = {
         boxShadow: 'none',
         backgroundColor: 'rgba(42, 42, 42 ,1)',
-        color: '#ffffff'
+        color: '#ffffff',
+        maxWidth:'1200px'
     };
     const gridStylesAns = {
         backgroundColor: 'rgba(42, 42, 42 ,1)',
@@ -47,8 +48,9 @@ export default function ResultCacd() {
                                     <Item style={gridStyles}>
                                         <CardMedia
                                             component="img"
-                                            height="200"
-                                            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3X5VVDxWLwrSJIuo6g5zHCcSM5eG6HvaiwXDo6E4&s"
+                                            height="auto"
+                                            width = "400"
+                                            image={resultElement.preview_image}
                                             alt="image"
                                         />
                                     </Item>
@@ -57,11 +59,10 @@ export default function ResultCacd() {
                                     <Item style={gridStyles}>
                                         <CardContent >
                                             <Typography gutterBottom variant="h5" component="div" style={{ textAlign: "left" }}>
-                                                Universe
+                                               {resultElement.title}
                                             </Typography>
                                             <Typography variant="body2" style={{ textAlign: "left" }}>
-                                                Lizards are a widespread group of squamate reptiles, with over 6,000
-                                                species, ranging across all continents except Antarctica
+                                              {resultElement.description}
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
