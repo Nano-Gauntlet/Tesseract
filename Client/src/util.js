@@ -1,5 +1,12 @@
+import axios from 'axios'
+const API = axios.create({baseURL: "http://localhost:5000"});
 
-function searchQuery(){
-    return true
+async function searchAPI(query){
+    const res = await API.get(`/query/${query}`)
+    .then(res=>res.json())
+    .catch(err=>err)
+
+    return res;
 }
-export default searchQuery
+
+export {searchAPI}

@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchBar from '../MyComponents/SearchBar';
-import Bg_home from '../MyComponents/Assets/videoplayback.mp4'
+import Bg_home from '../MyComponents/Assets/searchBg.mp4'
 import './HomeCss.css'
 import { useState } from 'react';
 import logo from "../MyComponents/Assets/logo.png"
