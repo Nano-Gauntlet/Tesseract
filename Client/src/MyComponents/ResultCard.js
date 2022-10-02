@@ -96,7 +96,10 @@ export default function ResultCacd({resultElement}) {
                                             >
                                                 <EmailIcon size={32} round />
                                             </EmailShareButton>
-                                            <Button size="small" onClick="location.href=${resultElement.url};">Learn More</Button>
+                                            <Button size="small" onClick={(e) => {
+      e.preventDefault();
+      window.location.href='http://google.com';
+      }}>Learn More</Button>
                                         </CardActions>
                                     </Item>
                                 </Grid>
