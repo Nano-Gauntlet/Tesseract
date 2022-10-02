@@ -33,7 +33,7 @@ function Home() {
                 <center><img className='center' src = {logo}/></center>
                 <SearchBar placeholder="Search" videoSetter={(e)=>setfirst(e)} video={first} onClick={clickHandler} />
                 {/* <Button variant=''>Search Through the starts</Button> */}
-                <ImageofTheDay />
+                {/* <ImageofTheDay /> */}
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API = axios.create({baseURL: "https://e47a-103-210-202-201.ngrok.io"});
+const API = axios.create({baseURL: "http://4.240.72.94:8080/"});
 
 async function searchAPI(query){
     const res = await API.get(`/query/${query}`)
