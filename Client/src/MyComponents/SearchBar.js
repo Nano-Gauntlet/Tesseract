@@ -9,7 +9,7 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { IconButton, InputAdornment } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { searchAPI } from "../util";
-
+import { useNavigate } from "react-router-dom";
 
 const StyledButton = styled(Button)(({ theme, color = "primary" }) => ({
   ":hover": {
@@ -20,12 +20,15 @@ const StyledButton = styled(Button)(({ theme, color = "primary" }) => ({
 }));
 
 export default function SearchBar(){
-
+  const navigate = useNavigate();     
+  
   const [search, setSearch] = useState("");
   const query = async (e)=>{
     e.preventDefault();
     var res = await searchAPI(search);
-    console.log(res);
+    var searchTerm = `${search}`
+    // console.log(searchTerm);
+    navigate("/result", { "state": res.res.slice(0,10), "searchTerm": searchTerm});
   }
   const textFieldCss = {
     background: "rgba(128,128,128,0.2)",
